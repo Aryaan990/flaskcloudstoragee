@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Cloud Storage System</h1>
+
+    <h3>Upload File</h3>
+    <form action="/upload" method="post">
+        <input type="text" name="filename" placeholder="Enter file name" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h3>Update File</h3>
+    <form action="/update" method="post">
+        <input type="text" name="old_name" placeholder="Old file name" required>
+        <input type="text" name="new_name" placeholder="New file name" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <h3>Delete File</h3>
+    <form action="/delete" method="post">
+        <input type="text" name="filename" placeholder="Enter file name" required>
+        <button type="submit">Delete</button>
+    </form>
+
+    <h3>Stored Files</h3>
+    <ul>
+        {% for file in files %}
+            <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
